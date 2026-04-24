@@ -1,0 +1,189 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 20px 20px;
+  border-bottom: 1px solid #ddd;
+}
+.special-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+.lesson-container {
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+  
+.lesson-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  
+.lesson-content button {
+  background-color: #F59C92;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  }
+  
+.lesson-content img {
+  max-width: 700px;
+  margin: 20px;
+  height: 500px;
+}
+  
+.lesson-content p {
+  font-size: 25px;
+  font-family:cursive;
+}
+
+.title{
+  text-align: center;
+  font-family:cursive;
+  font-size: 35px;
+}
+
+/*Style for the navigation arrows*/
+.arrow-buttons {
+  position: absolute;
+  top: 50%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;  
+  margin-left: 100px;
+}
+  
+.arrow-buttons button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff948c;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+  
+.arrow-buttons button:hover {
+  background-color: #D44E3D;
+}
+
+
+/*Style for the back button*/
+.back-button {
+  background-color: #F59C92;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  margin-left: 10px;
+}
+  
+.back-button:hover {
+  background-color: #D44E3D;
+}
+
+/*Style for the next lesson button*/
+.next-lesson-button {
+  margin-top: 25px;
+  font-size: 17px;
+  background-color: #F59C92;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border:none;
+  padding: 10px;
+}
+  
+.next-lesson-button:hover {
+  background-color: #D44E3D;
+}
+  
+.practice{
+  padding: 10px 15px;
+  font-size: 17px;
+  background-color: #F59C92;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border:none;
+  margin-right: 10px;
+}
+  
+.practice:hover {
+  background-color: #D44E3D;
+}
+
+
+.flip-card {
+  width: 700px;
+  height: 450px;
+  margin: 0 auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.flip-card-back {
+  background-color: #f59c92;
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 2rem;
+  font-family: cursive;
+  padding: 20px;
+}
+
+.name_object {
+  margin-top: 45px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: cursive;
+  text-transform: uppercase;
+  color: #333;
+}

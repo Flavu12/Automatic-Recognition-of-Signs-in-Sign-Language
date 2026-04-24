@@ -133,12 +133,7 @@ npm start
 
 ---
 
-## 👩‍💻 Author
-
-Flavia-Paula Busnatu
-
----
 
 ## 📄 License
 
-This project is for educational purposes.
+This project is for my bachelor's thesis.

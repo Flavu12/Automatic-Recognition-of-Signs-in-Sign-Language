@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Automatic Recognition of Signs in Sign Language
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Overview
 
-## Available Scripts
+This project presents a web-based application designed to recognize and help users learn sign language (ASL – American Sign Language). The system uses computer vision and deep learning techniques to detect and classify gestures performed in front of a webcam in real time.
 
-In the project directory, you can run:
+The application aims to reduce communication barriers for people with hearing or speech impairments and to provide an accessible learning tool for beginners.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎯 Objectives
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Detect and track hand, face, and body movements
+* Extract relevant features from video frames
+* Recognize sign language gestures using a trained model
+* Provide real-time feedback to users
+* Offer an intuitive and user-friendly interface
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧠 Technologies Used
 
-### `npm run build`
+* Python (Flask backend)
+* React (frontend)
+* TensorFlow / Keras
+* MediaPipe Holistic
+* OpenCV
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ How It Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The system follows a pipeline:
 
-### `npm run eject`
+1. Capture video from webcam
+2. Extract frames from video stream
+3. Detect landmarks (hands, face, body) using MediaPipe
+4. Convert landmarks into sequences of 30 frames
+5. Feed sequences into an LSTM neural network
+6. Predict the performed sign
+7. Display result in real time
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+As described in the project, gestures are treated as **temporal sequences**, not static images, which improves accuracy and performance .
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🧬 Model Architecture
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The model is based on a Long Short-Term Memory (LSTM) network:
 
-## Learn More
+* LSTM layers: 64 → 128 → 64 neurons
+* Dense layers: 64 → 32 neurons
+* Output: Softmax classification
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The model processes sequences of **30 frames**, each containing extracted landmarks from hands, face, and body .
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📊 Results
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The model was tested on three ASL signs:
 
-### Analyzing the Bundle Size
+* Hello
+* Thanks
+* I love you
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The system achieved **over 90% accuracy**, demonstrating strong real-time performance .
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🖥️ Project Structure
 
-### Advanced Configuration
+```
+project/
+│── backend/
+│   ├── server.py
+│   ├── client.py
+│
+│── frontend/
+│   ├── React app
+│
+│── model/
+│   ├── trained LSTM model
+│
+│── data/
+│   ├── sequences (npy files)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🚀 Installation & Running
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 1. Clone repository
 
-### `npm run build` fails to minify
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 2. Backend setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+python server.py
+```
+
+### 3. Frontend setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## 📷 Features
+
+* Real-time gesture recognition
+* Webcam integration
+* Interactive learning interface
+* Modular client-server architecture
+
+---
+
+## 🔮 Future Improvements
+
+* Add more sign vocabulary
+* Improve model accuracy with larger datasets
+* Mobile application support
+* Audio output for recognized signs
+
+---
+
+## 👩‍💻 Author
+
+Flavia-Paula Busnatu
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
